@@ -625,8 +625,6 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 						function(trm:FlxTimer) restartSong()
 					);
 					PlayState.chartingMode = false;
-					if (Song.currentChartLoadSystem == 'psych_v1') ChartingStateNew.curSec = 0;
-					else ChartingState.curSec = 0;
 				case 'Back':
 					for (i in debugBars)
 						FlxTween.tween(i, {x: -1000}, 0.5, {ease: FlxEase.quartIn});
