@@ -9,7 +9,7 @@ haxelib dev SScript /root/haxelib/SScript/git
 haxelib dev hscript-improved /root/haxelib/hscript-improved/git
 haxelib dev hscript /root/haxelib/hscript/2,4,0
 haxelib dev tjson /root/haxelib/tjson/1,4,0
-haxelib dev hxCodec /root/haxelib/hxCodec/git
+haxelib dev hxvlc /root/haxelib/hxvlc/git
 haxelib dev hxcpp /root/haxelib/hxcpp/git
 haxelib dev lime /root/haxelib/lime/git
 haxelib dev openfl /root/haxelib/openfl/git
