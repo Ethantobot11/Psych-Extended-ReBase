@@ -46,7 +46,7 @@ jobs:
           - name: macOS
             os: macos-15
             buildArgs: "mac -final -D officialBuild"
-            setupCommand: .\"setup/windows.bat"
+            setupCommand: sh ./setup/unix.sh
             artifactName: macOSBuild
             artifactPath: export/release/macos/bin/*
     uses: ./.github/workflows/build.yml
