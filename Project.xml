@@ -5,10 +5,10 @@
 	<!-- ___ Build with spesific libraries ___ -->
 	<define name="debugBuild" if="termux" />
 
-	<app title="FNF': Psych Extended Rebase" file="PsychEngine" packageName="com.kraloyuncu.psychextendedrebase" package="com.kraloyuncu.psychextendedrebase" main="Main" version="0.2.8" company="KralOyuncu" />
+	<app title="FNF': Psych Extended Rebase" file="PsychEngineExtanted" packageName="com.kraloyuncu.psychextendedrebase" package="com.kraloyuncu.psychextendedrebase" main="Main" version="1.0.2" company="KralOyuncu" />
 
 	<section if="debugBuild"> <!-- Seperate debug & github builds -->
-		<app title="FNF': Psych Extended Debug" file="PsychEngine" packageName="com.kraloyuncu.psychextendedrebasedebug" package="com.kraloyuncu.psychextendedrebasedebug" main="Main" version="0.2.8" company="KralOyuncu" />
+		<app title="FNF': Psych Extended Debug" file="PsychEngineExtanted" packageName="com.kraloyuncu.psychextendedrebasedebug" package="com.kraloyuncu.psychextendedrebasedebug" main="Main" version="1.0.2" company="KralOyuncu" />
 	</section>
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
@@ -113,7 +113,7 @@
 
 	<define name="ACHIEVEMENTS_ALLOWED" />
 
-	<define name="VIDEOS_ALLOWED" if="web || windows || android" unless="32bits"/>
+	<define name="VIDEOS_ALLOWED" if="web || windows || android || ios" unless="32bits"/>
 
 	<!-- DELETE THIS TO REMOVE WATERMARKS/DEV NAMES ON TITLE SCREEN -->
 	<define name="PSYCH_WATERMARKS"/>
@@ -190,7 +190,7 @@
 
 	<haxelib name="tjson"/> <!-- Haxe's json brokes the mods, so use tjson for them -->
 
-	<haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
+	<haxelib name="hxvlc" if="VIDEOS_ALLOWED"/>
 
 	<haxelib name="faxe" if='switch'/>
 
