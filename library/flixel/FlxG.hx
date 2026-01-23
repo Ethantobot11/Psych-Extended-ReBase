@@ -822,7 +822,6 @@ class FlxG
 	{
 		updateFramerate = value;
 		drawFramerate = value;
-		if (Application.current.window.vsync) Application.current.window.vsync = false;
 		if (fixedTimestep) fixedTimestep = false;
 		return value;
 	}
