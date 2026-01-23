@@ -434,12 +434,12 @@ class Paths
 	#if MODS_ALLOWED
 	inline static public function mods(key:String = '') {
 		#if MODPACK_ALLOWED
-		var modpack = #if mobile StorageUtil.getExternalStorageDirectory() + #end 'modpack/' + ClientPrefs.data.currentModPack + '/' + key;
+		var modpack = #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'modpack/' + ClientPrefs.data.currentModPack + '/' + key;
 		if (ClientPrefs.data.currentModPack != null && FileSystem.exists(modpack))
 			return modpack;
 		//global
-		if (ClientPrefs.data.currentModPack != null) return #if mobile StorageUtil.getExternalStorageDirectory() + #end 'modpack/' + key;
-		else #end return #if mobile StorageUtil.getExternalStorageDirectory() + #end 'mods/' + key;
+		if (ClientPrefs.data.currentModPack != null) return #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'modpack/' + key;
+		else #end return #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'mods/' + key;
 	}
 
 	inline static public function modsJson(key:String)
@@ -478,12 +478,12 @@ class Paths
 
 		}
 		#if MODPACK_ALLOWED
-		var modpack = #if mobile StorageUtil.getExternalStorageDirectory() + #end 'modpack/' + ClientPrefs.data.currentModPack + '/' + key;
+		var modpack = #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'modpack/' + ClientPrefs.data.currentModPack + '/' + key;
 		if (ClientPrefs.data.currentModPack != null && FileSystem.exists(modpack))
 			return modpack;
 		//global
-		if (ClientPrefs.data.currentModPack != null) return #if mobile StorageUtil.getExternalStorageDirectory() + #end 'modpack/' + key;
-		else #end return #if mobile StorageUtil.getExternalStorageDirectory() + #end 'mods/' + key;
+		if (ClientPrefs.data.currentModPack != null) return #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'modpack/' + key;
+		else #end return #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'mods/' + key;
 	}
 	#end
 
@@ -610,9 +610,9 @@ class Paths
 	{
 		#if mobile
 		//Check External first
-		if(FileSystem.exists(StorageUtil.getExternalStorageDirectory() + 'scripting/$file')) {
-			//trace('file: ' + StorageUtil.getExternalStorageDirectory() + file + ' exists');
-			return StorageUtil.getExternalStorageDirectory() + 'scripting/$file';
+		if(FileSystem.exists(#if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'scripting/$file')) {
+			//trace('file: ' + #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end file + ' exists');
+			return #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'scripting/$file';
 		}
 		else
 		#end
@@ -652,9 +652,9 @@ class Paths
 	
 	inline static public function modpack(key:String = '') {
 		#if MODPACK_ALLOWED
-		return #if mobile StorageUtil.getExternalStorageDirectory() + #end 'modpack/' + key;
+		return #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'modpack/' + key;
 		#else
-		return #if mobile StorageUtil.getExternalStorageDirectory() + #end 'mods/' + key;
+		return #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'mods/' + key;
 		#end
 	}
 	

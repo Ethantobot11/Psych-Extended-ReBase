@@ -1,6 +1,7 @@
 package;
 
 import flixel.addons.display.FlxPieDial;
+import Controls;
 
 #if hxvlc
 import hxcodec.flixel.FlxVideoSprite;
@@ -109,7 +110,7 @@ class VideoSprite extends FlxSpriteGroup {
 	{
 		if(canSkip)
 		{
-			if(FlxG.state.controls.ACCEPT_P)
+			if(Controls.instance.ACCEPT_P)
 			{
 				holdingTime = Math.max(0, Math.min(_timeToSkip, holdingTime + elapsed));
 			}
