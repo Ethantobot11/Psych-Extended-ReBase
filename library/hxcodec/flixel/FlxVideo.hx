@@ -26,7 +26,7 @@ class FlxVideo extends FlxInternalVideo
 	/** Determines the resizing behavior for the video. */
 	public var resizeMode(default, set):FlxAxes = FlxAxes.XY;
 
-	@:inheritDoc(hxvlc.openfl.Video.new)
+	@:inheritDoc(hxcodec.openfl.Video.new)
 	public function new(smoothing:Bool = true):Void
 	{
 		super(smoothing);
@@ -40,7 +40,7 @@ class FlxVideo extends FlxInternalVideo
 		});
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.dispose)
+	@:inheritDoc(hxcodec.openfl.Video.dispose)
 	public override function dispose():Void
 	{
 		if (FlxG.signals.gameResized.has(onGameResized))

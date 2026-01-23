@@ -7,7 +7,7 @@ import cpp.RawConstPointer;
 import cpp.RawPointer;
 import cpp.UInt32;
 
-import hxvlc.externs.Types;
+import hxcodec.externs.Types;
 
 /**
  * This class provides static methods to interact with the LibVLC library.
