@@ -9,12 +9,12 @@ jobs:
       matrix:
         include:
           - name: iOS-Sim
-            os: macos-13
-            buildArgs: "ios -simulator -nosign"
+            os: macos-15
+            buildArgs: "ios -final -nosign"
             setupCommand: sh ./setup/unix.sh
-            artifactName: iOSSimBuild
+            artifactName: iOSBuild
             artifactPath: "export/release/ios/build/Release-iphonesimulator/*.ipa"
-            system: iOS-Sim
+            system: iOS
     uses: ./.github/workflows/build.yml
     with:
         name: ${{ matrix.name }}
