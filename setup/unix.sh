@@ -15,9 +15,9 @@ haxelib git SScript https://github.com/PsychExtendedThings/SScript --quiet #stab
 haxelib git hscript-improved https://github.com/PsychExtendedThings/hscript-improved-Psych --quiet #changed with updated one
 haxelib install hscript 2.4.0 --quiet
 haxelib install tjson 1.4.0 --quiet #for fucking mods system (haxe.Json brokes the modlist)
-haxelib git hxCodec https://github.com/PsychExtendedThings/hxCodec-0.6.3 --quiet #That clearly my repo
+haxelib haxelib hxvlc 2.1.0 --quiet #That clearly my repo
 haxelib git hxcpp https://github.com/beihu235/hxcpp --quiet #Just a normal hxcpp
-haxelib git lime https://github.com/HomuHomu833-garbage/lime int-delta --quiet #repo owner helped to fix termux problem
+haxelib git lime https://github.com/ArkoseLabsOfficial/lime --quiet #repo owner helped to fix termux problem
 haxelib install openfl 9.3.3 --quiet #Most stable version of openfl
 haxelib git flxanimate https://github.com/PsychExtendedThings/flxanimate-ex --quiet
 haxelib git funkin.vis https://github.com/beihu235/funkVis-FrequencyFixed main --quiet
