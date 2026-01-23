@@ -2,6 +2,11 @@ package;
 
 import flixel.addons.display.FlxPieDial;
 import Controls;
+#if !android
+// create a dummy alias so old code still works on PC/Linux/Mac
+using Controls;
+inline var controls(get, never) = Controls.instance;
+#end
 
 #if hxvlc
 import hxcodec.flixel.FlxVideoSprite;
@@ -110,7 +115,7 @@ class VideoSprite extends FlxSpriteGroup {
 	{
 		if(canSkip)
 		{
-			if(controls.ACCEPT)
+			if(Controls.instance.ACCEPT)
 			{
 				holdingTime = Math.max(0, Math.min(_timeToSkip, holdingTime + elapsed));
 			}
