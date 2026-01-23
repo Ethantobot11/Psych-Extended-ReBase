@@ -484,7 +484,7 @@ class Video extends openfl.display.Bitmap
 	 * @param options Additional options to configure the media.
 	 * @return `true` if the media was loaded successfully, `false` otherwise.
 	 */
-	public function load(location:hxvlc.util.Location, ?options:Array<String>):Bool
+	public function load(location:hxcodec.util.Location, ?options:Array<String>):Bool
 	{
 		if (Handle.instance == null)
 			return false;
