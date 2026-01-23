@@ -77,6 +77,7 @@ import mobile.substates.*;
 import mobile.objects.Hitbox;
 import mobile.objects.MobilePad;
 import mobile.backend.MobileData;
+import mobile.backend.PsychJNI;
 #else
 import mobile.backend.StorageUtil;
 import mobile.backend.PsychJNI;
