@@ -1,4 +1,4 @@
-package hxvlc.flixel;
+package hxcodec.flixel;
 
 #if flixel
 import flixel.FlxG;
