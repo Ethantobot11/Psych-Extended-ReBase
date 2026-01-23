@@ -37,6 +37,18 @@ jobs:
             artifactName: windowsBuild-x86_64
             artifactPath: export\release\windows\bin\*
             system: Windows
+          - name: Linux
+            os: ubuntu-22.04
+            buildArgs: "linux -final -D officialBuild"
+            setupCommand: .\"setup/windows.bat"
+            artifactName: linuxBuild
+            artifactPath: export/release/linux/bin/*
+          - name: macOS
+            os: macos-15
+            buildArgs: "mac -final -D officialBuild"
+            setupCommand: .\"setup/windows.bat"
+            artifactName: macOSBuild
+            artifactPath: export/release/macos/bin/*
     uses: ./.github/workflows/build.yml
     with:
         name: ${{ matrix.name }}
@@ -80,6 +92,28 @@ jobs:
         run: |
           cd /home/runner/windowsBuild-x86_64
           zip -r "/home/runner/windowsBuild-x86_64.zip" .
+
+      - name: Download Linux Build
+        uses: actions/download-artifact@main
+        with:
+          name: linuxBuild
+          path: /home/runner/linuxBuild
+
+      - name: Tar Linux ARM64 Build For Release
+        run: |
+          cd /home/runner/linuxBuild
+          tar czf "/home/runner/Linux.tar" .
+
+      - name: Download macOS Build
+        uses: actions/download-artifact@main
+        with:
+          name: macOSBuild
+          path: /home/runner/macOSBuild
+
+      - name: Tar macOS Build For Release
+        run: |
+          cd /home/runner/macOSBuild
+          tar czf "/home/runner/macOS.tar" .
 
       - name: Publish The Release
         uses: softprops/action-gh-release@v2
