@@ -1,4 +1,4 @@
-package hxcodec.flixel.VLCBitmap;
+package hxcodec.flixel.LibVLC;
 
 import cpp.CastCharStar;
 import cpp.ConstCharStar;
