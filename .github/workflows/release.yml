@@ -40,7 +40,7 @@ jobs:
           - name: Linux
             os: ubuntu-22.04
             buildArgs: "linux -final -D officialBuild"
-            setupCommand: .\"setup/windows.bat"
+            setupCommand: sh ./setup/unix.sh
             artifactName: linuxBuild
             artifactPath: export/release/linux/bin/*
           - name: macOS
