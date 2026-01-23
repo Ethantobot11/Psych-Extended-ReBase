@@ -110,7 +110,7 @@ class VideoSprite extends FlxSpriteGroup {
 	{
 		if(canSkip)
 		{
-			if(Controls.instance.ACCEPT_P)
+			if(controls.ACCEPT)
 			{
 				holdingTime = Math.max(0, Math.min(_timeToSkip, holdingTime + elapsed));
 			}
