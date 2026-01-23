@@ -138,12 +138,6 @@ class VLCBitmap extends Bitmap
 	private var buffer:BytesData;
 	private var texture:RectangleTexture;
 
-	// LibVLC
-	private var audioOutput:LibVLC_AudioOutput;
-	private var mediaPlayer:LibVLC_MediaPlayer;
-	private var mediaItem:LibVLC_Media;
-	private var eventManager:LibVLC_EventManager;
-
 	public function new():Void
 	{
 		super(bitmapData, AUTO, true);
