@@ -40,7 +40,7 @@ class FlxInternalVideo extends Video
 		});
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.load)
+	@:inheritDoc(hxcodec.openfl.Video.load)
 	public override function load(location:Location, ?options:Array<String>):Bool
 	{
 		if (location != null && !(location is Int) && !(location is Bytes) && (location is String))
@@ -95,7 +95,7 @@ class FlxInternalVideo extends Video
 		return loadInternal(location, options);
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.addSlave)
+	@:inheritDoc(hxcodec.openfl.Video.addSlave)
 	public override function addSlave(type:Int, location:String, select:Bool):Bool
 	{
 		if (!Video.URL_VERIFICATION_REGEX.match(location))
@@ -123,7 +123,7 @@ class FlxInternalVideo extends Video
 		return super.addSlave(type, location, select);
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.dispose)
+	@:inheritDoc(hxcodec.openfl.Video.dispose)
 	public override function dispose():Void
 	{
 		if (FlxG.signals.focusGained.has(onFocusGained))
