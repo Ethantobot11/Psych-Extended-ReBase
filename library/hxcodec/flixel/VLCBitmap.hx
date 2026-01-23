@@ -15,7 +15,6 @@ import openfl.display.BitmapData;
 import openfl.display3D.textures.RectangleTexture;
 import openfl.events.Event;
 import openfl.utils.ByteArray;
-import vlc.LibVLC;
 
 /**
  * ...
@@ -140,7 +139,6 @@ class VLCBitmap extends Bitmap
 	private var texture:RectangleTexture;
 
 	// LibVLC
-	private var instance:LibVLC_Instance;
 	private var audioOutput:LibVLC_AudioOutput;
 	private var mediaPlayer:LibVLC_MediaPlayer;
 	private var mediaItem:LibVLC_Media;
