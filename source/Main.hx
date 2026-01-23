@@ -198,7 +198,6 @@ class Main extends Sprite
 
 		FlxG.fixedTimestep = false;
 		FlxG.game.focusLostFramerate = #if mobile 30 #else 60 #end;
-		Application.current.window.vsync = false;
 		FlxG.signals.preUpdate.add(fixSlowdown);
 
 		// shader and mobile device coords fix
