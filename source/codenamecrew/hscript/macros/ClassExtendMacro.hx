@@ -40,7 +40,6 @@ class ClassExtendMacro {
         if (__interp == null) __interp = {};
         if (__class__fields == null) __class__fields = [];
     }
-	}
 	public static function init() {
 		#if !display
 		#if CUSTOM_CLASSES
