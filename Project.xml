@@ -264,6 +264,8 @@
 
 	<!--Disable deprecated warnings-->
 	<haxedef name='no-deprecation-warnings' />
+	<haxedef name="no-null-safety" />
+
 
 	<haxedef name="lime_use_old_deltatime" />
 
