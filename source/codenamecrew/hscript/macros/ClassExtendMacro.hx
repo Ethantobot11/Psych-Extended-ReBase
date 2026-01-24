@@ -23,13 +23,20 @@ class ClassExtendMacro {
 
 	public static var modifiedClasses:Array<String> = [];
 
-  	public static var __cachedFieldSet:Array<String> = [];
-	public static var __real_fields:Array<String> = [];
-	public static var __interp:Dynamic = {};
-	public static var __class__fields:Array<String> = [];
+  	/*public static var __cachedFieldSet:Array<String>?;
+	public static var __real_fields:Array<String>?;
+	public static var __interp:Dynamic?;
+	public static var __class__fields:Array<String>?;*/
 
-	
+
+	public static function initFields():Void {
+    if (__cachedFieldSet == null) __cachedFieldSet = [];
+    if (__real_fields == null) __real_fields = [];
+    if (__interp == null) __interp = {};
+    if (__class__fields == null) __class__fields = [];
+	}
 	public static function init() {
+		initFields();
 		#if !display
 		#if CUSTOM_CLASSES
 		if(Context.defined("display")) return;
