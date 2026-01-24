@@ -1,4 +1,3 @@
-@:nullSafety(Off)
 package codenamecrew.hscript.macros;
 
 #if macro
@@ -16,6 +15,7 @@ import haxe.macro.*;
 using StringTools;
 
 // BIG TODO: make typed classes scriptable
+@:nullSafety(Off)
 class ClassExtendMacro {
 	public static inline final FUNC_PREFIX = "_HX_SUPER__";
 	public static inline final CLASS_SUFFIX = "_HSX";
