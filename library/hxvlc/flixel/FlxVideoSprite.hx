@@ -1,46 +1,43 @@
 package hxvlc.flixel;
 
 #if flixel
-import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.graphics.FlxGraphic;
 import flixel.util.FlxColor;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import haxe.io.Bytes;
+import hxvlc.externs.Types;
+import hxvlc.openfl.Location;
+import hxvlc.openfl.Video;
+import sys.FileSystem;
 
-import hxvlc.util.Location;
+using StringTools;
 
 /**
- * This class extends `FlxSprite` to display video files in HaxeFlixel.
- *
- * ```haxe
- * final video:FlxVideoSprite = new FlxVideoSprite(0, 0);
- * video.antialiasing = true;
- * video.bitmap.onFormatSetup.add(function():Void
- * {
- * 	if (video.bitmap != null && video.bitmap.bitmapData != null)
- * 	{
- * 		final scale:Float = Math.min(FlxG.width / video.bitmap.bitmapData.width, FlxG.height / video.bitmap.bitmapData.height);
- * 
- * 		video.setGraphicSize(video.bitmap.bitmapData.width * scale, video.bitmap.bitmapData.height * scale);
- * 		video.updateHitbox();
- * 		video.screenCenter();
- * 	}
- * });
- * video.bitmap.onEndReached.add(video.destroy);
- * add(video);
- * 
- * if (video.load('assets/videos/video.mp4'))
- * 	FlxTimer.wait(0.001, () -> video.play());
- * ```
+ * `FlxVideoSprite` is used for displaying video files in HaxeFlixel as sprites.
  */
-@:nullSafety
 class FlxVideoSprite extends FlxSprite
 {
-	/** The video bitmap object. */
-	public var bitmap:Null<FlxInternalVideo>;
+	/**
+	 * Whether the video should automatically pause when focus is lost.
+	 *
+	 * @warning Must be set before loading a video.
+	 */
+	public var autoPause:Bool = FlxG.autoPause;
+
+	/**
+	 * Whether Flixel should automatically adjust the volume according to the Flixel sound system's current volume.
+	 */
+	public var autoVolumeHandle:Bool = true;
+
+	/**
+	 * The video bitmap.
+	 */
+	public var bitmap(default, null):Video;
 
 	/**
 	 * Creates a `FlxVideoSprite` at a specified position.
-	 * 
+	 *
 	 * @param x The initial X position of the sprite.
 	 * @param y The initial Y position of the sprite.
 	 */
@@ -50,96 +47,126 @@ class FlxVideoSprite extends FlxSprite
 
 		makeGraphic(1, 1, FlxColor.TRANSPARENT);
 
-		bitmap = new FlxInternalVideo(antialiasing);
-		bitmap.forceRendering = true;
-		bitmap.onFormatSetup.add(function():Void
-		{
-			if (bitmap != null && bitmap.bitmapData != null)
-				loadGraphic(FlxGraphic.fromBitmapData(bitmap.bitmapData, false, null, false));
-		});
-		bitmap.visible = false;
+		bitmap = new Video(antialiasing);
+		bitmap.onOpening.add(() -> bitmap.role = LibVLC_Role_Game);
+		bitmap.onFormatSetup.add(() -> loadGraphic(FlxGraphic.fromBitmapData(bitmap.bitmapData, false, null, false)));
+		bitmap.alpha = 0;
 		FlxG.game.addChild(bitmap);
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.load)
+	/**
+	 * Loads a video.
+	 *
+	 * @param location The local filesystem path, the media location URL, the ID of an open file descriptor, or the bitstream input.
+	 * @param options Additional options to add to the LibVLC Media.
+	 * @return `true` if the video loaded successfully, `false` otherwise.
+	 */
 	public function load(location:Location, ?options:Array<String>):Bool
 	{
-		return bitmap != null ? bitmap.load(location, options) : false;
+		if (bitmap == null)
+			return false;
+
+		if (autoPause)
+		{
+			if (!FlxG.signals.focusGained.has(resume))
+				FlxG.signals.focusGained.add(resume);
+
+			if (!FlxG.signals.focusLost.has(pause))
+				FlxG.signals.focusLost.add(pause);
+		}
+
+		if (location != null && !(location is Int) && !(location is Bytes) && (location is String))
+		{
+			final location:String = cast(location, String);
+
+			if (!location.contains('://'))
+			{
+				final absolutePath:String = FileSystem.absolutePath(location);
+
+				if (FileSystem.exists(absolutePath))
+					return bitmap.load(absolutePath, options);
+				else
+				{
+					FlxG.log.warn('Unable to find the video file at location "$absolutePath".');
+
+					return false;
+				}
+			}
+		}
+
+		return bitmap.load(location, options);
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.loadFromSubItem)
-	public function loadFromSubItem(index:Int, ?options:Array<String>):Bool
-	{
-		return bitmap != null ? bitmap.loadFromSubItem(index, options) : false;
-	}
-
-	@:inheritDoc(hxvlc.openfl.Video.parseWithOptions)
-	public function parseWithOptions(parse_flag:Int, timeout:Int):Bool
-	{
-		return bitmap != null ? bitmap.parseWithOptions(parse_flag, timeout) : false;
-	}
-
-	@:inheritDoc(hxvlc.openfl.Video.parseStop)
-	public function parseStop():Void
-	{
-		if (bitmap != null)
-			bitmap.parseStop();
-	}
-
-	@:inheritDoc(hxvlc.openfl.Video.addSlave)
-	public function addSlave(type:Int, location:String, select:Bool):Bool
-	{
-		return bitmap != null ? bitmap.addSlave(type, location, select) : false;
-	}
-
-	@:inheritDoc(hxchxvlcodec.openfl.Video.play)
+	/**
+	 * Plays the video.
+	 *
+	 * @return `true` if the video started playing, `false` otherwise.
+	 */
 	public function play():Bool
 	{
-		return bitmap != null ? bitmap.play() : false;
+		if (bitmap == null)
+			return false;
+
+		return bitmap.play();
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.stop)
+	/**
+	 * Stops the video.
+	 */
 	public function stop():Void
 	{
 		if (bitmap != null)
 			bitmap.stop();
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.pause)
+	/**
+	 * Pauses the video.
+	 */
 	public function pause():Void
 	{
 		if (bitmap != null)
 			bitmap.pause();
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.resume)
+	/**
+	 * Resumes the video.
+	 */
 	public function resume():Void
 	{
 		if (bitmap != null)
 			bitmap.resume();
 	}
 
-	@:inheritDoc(hxvlc.openfl.Video.togglePaused)
+	/**
+	 * Toggles the pause state of the video.
+	 */
 	public function togglePaused():Void
 	{
 		if (bitmap != null)
 			bitmap.togglePaused();
 	}
 
-	@:dox(hide)
 	public override function destroy():Void
 	{
+		if (FlxG.signals.focusGained.has(resume))
+			FlxG.signals.focusGained.remove(resume);
+
+		if (FlxG.signals.focusLost.has(pause))
+			FlxG.signals.focusLost.remove(pause);
+
 		super.destroy();
 
 		if (bitmap != null)
 		{
-			FlxG.removeChild(bitmap);
 			bitmap.dispose();
+
+			if (FlxG.game.contains(bitmap))
+				FlxG.game.removeChild(bitmap);
+
 			bitmap = null;
 		}
 	}
 
-	@:dox(hide)
 	public override function kill():Void
 	{
 		if (bitmap != null)
@@ -148,7 +175,6 @@ class FlxVideoSprite extends FlxSprite
 		super.kill();
 	}
 
-	@:dox(hide)
 	public override function revive():Void
 	{
 		super.revive();
@@ -157,10 +183,28 @@ class FlxVideoSprite extends FlxSprite
 			bitmap.resume();
 	}
 
+	public override function update(elapsed:Float):Void
+	{
+		#if FLX_SOUND_SYSTEM
+		if (autoVolumeHandle)
+		{
+			final curVolume:Int = Math.floor((FlxG.sound.muted ? 0 : 1) * FlxG.sound.volume * 100);
+
+			if (bitmap.volume != curVolume)
+				bitmap.volume = curVolume;
+		}
+		#end
+
+		super.update(elapsed);
+	}
+
 	@:noCompletion
 	private override function set_antialiasing(value:Bool):Bool
 	{
-		return antialiasing = (bitmap == null ? value : (bitmap.smoothing = value));
+		if (bitmap != null)
+			bitmap.smoothing = value;
+
+		return antialiasing = value;
 	}
 }
 #end
