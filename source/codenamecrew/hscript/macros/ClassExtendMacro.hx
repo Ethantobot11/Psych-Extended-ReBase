@@ -1,3 +1,4 @@
+@:nullSafety(Off)
 package codenamecrew.hscript.macros;
 
 #if macro
@@ -27,19 +28,6 @@ class ClassExtendMacro {
 	public static var __real_fields:Array<String>?;
 	public static var __interp:Dynamic?;
 	public static var __class__fields:Array<String>?;*/
-
-
-	public static var __cachedFieldSet:Array<String> = null;
-	public static var __real_fields:Array<String> = null;
-	public static var __interp:Dynamic = null;
-	public static var __class__fields:Array<String> = null;
-
-    public static function initFields():Void {
-        if (__cachedFieldSet == null) __cachedFieldSet = [];
-        if (__real_fields == null) __real_fields = [];
-        if (__interp == null) __interp = {};
-        if (__class__fields == null) __class__fields = [];
-    }
 	public static function init() {
 		#if !display
 		#if CUSTOM_CLASSES
@@ -53,7 +41,6 @@ class ClassExtendMacro {
 	}
 
 	public static function build():Array<Field> {
-		ClassExtendMacro.initFields();
 		var fields = Context.getBuildFields();
 		var clRef = Context.getLocalClass();
 		if (clRef == null) return fields;
