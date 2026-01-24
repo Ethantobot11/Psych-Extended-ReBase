@@ -15,7 +15,7 @@ haxelib git SScript https://github.com/PsychExtendedThings/SScript --global
 haxelib git hscript-improved https://github.com/PsychExtendedThings/HScript-Improved --global
 haxelib install hscript 2.4.0 --global
 haxelib install tjson 1.4.0 --global
-haxelib git hxCodec https://github.com/PsychExtendedThings/hxCodec-0.6.3 --global
+haxelib git hxvlc https://github.com/PsychExtendedThings/hxCodec-0.6.3 --global
 haxelib git hxcpp https://github.com/PsychExtendedThings/hxcpp --global
 haxelib git lime https://github.com/PsychExtendedThings/lime-new --global
 haxelib install openfl 9.3.3 --global
@@ -31,7 +31,7 @@ haxelib dev SScript /root/haxelib/SScript/git
 haxelib dev hscript-improved /root/haxelib/hscript-improved/git
 haxelib dev hscript /root/haxelib/hscript/2,4,0
 haxelib dev tjson /root/haxelib/tjson/1,4,0
-haxelib dev hxCodec /root/haxelib/hxCodec/git
+haxelib dev hxvlc /root/haxelib/hxvlc/git
 haxelib dev hxcpp /root/haxelib/hxcpp/git
 haxelib dev lime /root/haxelib/lime/git
 haxelib dev openfl /root/haxelib/openfl/git

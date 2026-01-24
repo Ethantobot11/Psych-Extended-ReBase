@@ -1,8 +1,8 @@
-package hxcodec.util;
+package hxvlc.util;
 
 import cpp.Struct;
 
-import hxcodec.externs.Types;
+import hxvlc.externs.Types;
 
 /**
  * Represents various statistics related to media processing.

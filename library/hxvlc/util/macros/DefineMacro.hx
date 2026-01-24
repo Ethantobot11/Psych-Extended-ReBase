@@ -1,4 +1,4 @@
-package hxcodec.util.macros;
+package hxvlc.util.macros;
 
 #if macro
 import haxe.macro.Context;

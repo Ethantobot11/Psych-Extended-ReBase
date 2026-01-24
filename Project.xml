@@ -245,7 +245,7 @@
 	<!--Allow working memory greater than 1 Gig-->
 	<!--haxedef name="HXCPP_GC_BIG_BLOCKS"-->
 	
-	<!-- Show debug traces for hxCodec -->
+	<!-- Show debug traces for hxvlc -->
 	<haxedef name="HXC_DEBUG_TRACE" if="debug" />
 	
 	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->

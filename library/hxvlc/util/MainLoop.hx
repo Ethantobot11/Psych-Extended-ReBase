@@ -1,4 +1,4 @@
-package hxcodec.util;
+package hxvlc.util;
 
 #if haxe5
 import haxe.EventLoop;

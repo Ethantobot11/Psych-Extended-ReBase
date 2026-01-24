@@ -1,4 +1,4 @@
-package hxcodec.flixel;
+package hxvlc.flixel;
 
 #if flixel
 import flixel.FlxG;
@@ -6,7 +6,7 @@ import flixel.FlxSprite;
 import flixel.graphics.FlxGraphic;
 import flixel.util.FlxColor;
 
-import hxcodec.util.Location;
+import hxvlc.util.Location;
 
 /**
  * This class extends `FlxSprite` to display video files in HaxeFlixel.
@@ -61,65 +61,65 @@ class FlxVideoSprite extends FlxSprite
 		FlxG.game.addChild(bitmap);
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.load)
+	@:inheritDoc(hxvlc.openfl.Video.load)
 	public function load(location:Location, ?options:Array<String>):Bool
 	{
 		return bitmap != null ? bitmap.load(location, options) : false;
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.loadFromSubItem)
+	@:inheritDoc(hxvlc.openfl.Video.loadFromSubItem)
 	public function loadFromSubItem(index:Int, ?options:Array<String>):Bool
 	{
 		return bitmap != null ? bitmap.loadFromSubItem(index, options) : false;
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.parseWithOptions)
+	@:inheritDoc(hxvlc.openfl.Video.parseWithOptions)
 	public function parseWithOptions(parse_flag:Int, timeout:Int):Bool
 	{
 		return bitmap != null ? bitmap.parseWithOptions(parse_flag, timeout) : false;
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.parseStop)
+	@:inheritDoc(hxvlc.openfl.Video.parseStop)
 	public function parseStop():Void
 	{
 		if (bitmap != null)
 			bitmap.parseStop();
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.addSlave)
+	@:inheritDoc(hxvlc.openfl.Video.addSlave)
 	public function addSlave(type:Int, location:String, select:Bool):Bool
 	{
 		return bitmap != null ? bitmap.addSlave(type, location, select) : false;
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.play)
+	@:inheritDoc(hxchxvlcodec.openfl.Video.play)
 	public function play():Bool
 	{
 		return bitmap != null ? bitmap.play() : false;
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.stop)
+	@:inheritDoc(hxvlc.openfl.Video.stop)
 	public function stop():Void
 	{
 		if (bitmap != null)
 			bitmap.stop();
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.pause)
+	@:inheritDoc(hxvlc.openfl.Video.pause)
 	public function pause():Void
 	{
 		if (bitmap != null)
 			bitmap.pause();
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.resume)
+	@:inheritDoc(hxvlc.openfl.Video.resume)
 	public function resume():Void
 	{
 		if (bitmap != null)
 			bitmap.resume();
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.togglePaused)
+	@:inheritDoc(hxvlc.openfl.Video.togglePaused)
 	public function togglePaused():Void
 	{
 		if (bitmap != null)

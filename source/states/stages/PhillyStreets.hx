@@ -216,7 +216,7 @@ class PhillyStreets extends BaseStage
 			game.videoCutscene.finishCallback = function()
 			{
 				videoEnded = true;
-				#if (hxCodec > "3.0.0" && ios)
+				#if (hxvlc > "3.0.0" && ios)
 				game.videoCutscene.dispose();
 				#end
 				game.videoCutscene = null;

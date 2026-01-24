@@ -1,4 +1,4 @@
-package hxcodec.openfl;
+package hxvlc.openfl;
 
 import cpp.CastCharStar;
 import cpp.Float32;
@@ -20,15 +20,15 @@ import haxe.io.Bytes;
 import haxe.io.BytesData;
 import haxe.io.BytesInput;
 
-import hxcodec.externs.LibVLC;
-import hxcodec.externs.Types;
-import hxcodec.openfl.textures.VideoTexture;
-import hxcodec.util.Handle;
-import hxcodec.util.MainLoop;
-import hxcodec.util.Stats;
-import hxcodec.util.TrackDescription;
-import hxcodec.util.Util;
-import hxcodec.util.macros.DefineMacro;
+import hxvlc.externs.LibVLC;
+import hxvlc.externs.Types;
+import hxvlc.openfl.textures.VideoTexture;
+import hxvlc.util.Handle;
+import hxvlc.util.MainLoop;
+import hxvlc.util.Stats;
+import hxvlc.util.TrackDescription;
+import hxvlc.util.Util;
+import hxvlc.util.macros.DefineMacro;
 
 import lime.app.Event;
 import lime.utils.UInt8Array;
@@ -484,7 +484,7 @@ class Video extends openfl.display.Bitmap
 	 * @param options Additional options to configure the media.
 	 * @return `true` if the media was loaded successfully, `false` otherwise.
 	 */
-	public function load(location:hxcodec.util.Location, ?options:Array<String>):Bool
+	public function load(location:hxvlc.util.Location, ?options:Array<String>):Bool
 	{
 		if (Handle.instance == null)
 			return false;

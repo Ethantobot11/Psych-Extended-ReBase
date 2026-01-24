@@ -1,4 +1,4 @@
-package hxcodec.openfl.textures;
+package hxvlc.openfl.textures;
 
 import lime.utils.UInt8Array;
 

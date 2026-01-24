@@ -394,9 +394,9 @@ class Script extends FlxBasic implements IFlxDestroyable {
 			"ModGroup"		  => options.group.ModGroup,
 			#end
 
-			/* for returning hxCodec 3.x.x requests to hxCodec 2.5.1 */
-			"FlxVideo"		  => hxcodec.flixel.FlxVideo,
-			"FlxVideoSprite"		  => hxcodec.flixel.FlxVideoSprite,
+			/* for returning hxvlc 3.x.x requests to hxvlc 2.5.1 */
+			"FlxVideo"		  => hxvlc.flixel.FlxVideo,
+			"FlxVideoSprite"		  => hxvlc.flixel.FlxVideoSprite,
 
 			/* Converters (There's only CNE for now, but I can add other ones too) */
 			#if CNE_CHART_ALLOWED

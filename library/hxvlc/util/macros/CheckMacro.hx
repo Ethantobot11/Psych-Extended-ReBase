@@ -1,4 +1,4 @@
-package hxcodec.util.macros;
+package hxvlc.util.macros;
 
 #if macro
 import haxe.macro.Context;
@@ -17,8 +17,8 @@ class CheckMacro
 	 * - It verifies that the Lime version is 8.0.1 or newer. If the Lime version is older, it raises a fatal error
 	 *   and suggests updating Lime.
 	 * 
-	 * - It checks if the hxCodec library is defined in the project. If hxCodec is present, it raises a fatal error
-	 *   indicating that hxvlc and hxCodec cannot be used together in the same project.
+	 * - It checks if the hxvlc library is defined in the project. If hxvlc is present, it raises a fatal error
+	 *   indicating that hxvlc and hxvlc cannot be used together in the same project.
 	 * 
 	 * @throws Context.fatalError if any of the checks fail.
 	 */
@@ -31,8 +31,8 @@ class CheckMacro
 		Context.fatalError('The hxvlc library requires Lime version 8.0.1 or newer. Please update Lime by running `haxelib update lime`.', (macro null).pos);
 		#end
 
-		if (Context.defined('hxCodec'))
-			Context.fatalError('The hxvlc library and hxCodec cannot be used in the same project.', (macro null).pos);
+		if (Context.defined('hxvlc'))
+			Context.fatalError('The hxvlc library and hxvlc cannot be used in the same project.', (macro null).pos);
 	}
 }
 #end

@@ -1,8 +1,8 @@
-package hxcodec.util;
+package hxvlc.util;
 
 import haxe.io.Bytes;
 
-import hxcodec.util.typeLimit.OneOfThree;
+import hxvlc.util.typeLimit.OneOfThree;
 
 /**
  * Represents a location which can be:

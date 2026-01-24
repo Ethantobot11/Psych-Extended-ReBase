@@ -1,4 +1,4 @@
-package hxcodec.flixel;
+package hxvlc.flixel;
 
 #if flixel
 import flixel.FlxG;
@@ -6,11 +6,11 @@ import flixel.FlxG;
 import haxe.io.Bytes;
 import haxe.io.Path;
 
-import hxcodec.externs.Types;
-import hxcodec.openfl.Video;
-import hxcodec.util.Location;
-import hxcodec.util.Util;
-import hxcodec.util.macros.DefineMacro;
+import hxvlc.externs.Types;
+import hxvlc.openfl.Video;
+import hxvlc.util.Location;
+import hxvlc.util.Util;
+import hxvlc.util.macros.DefineMacro;
 
 import openfl.utils.Assets;
 
@@ -29,7 +29,7 @@ class FlxInternalVideo extends Video
 	@:noCompletion
 	private var resumeOnFocus:Bool = false;
 
-	@:inheritDoc(hxcodec.openfl.Video.new)
+	@:inheritDoc(hxvlc.openfl.Video.new)
 	public function new(smoothing:Bool = true):Void
 	{
 		super(smoothing);
@@ -40,7 +40,7 @@ class FlxInternalVideo extends Video
 		});
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.load)
+	@:inheritDoc(hxvlc.openfl.Video.load)
 	public override function load(location:Location, ?options:Array<String>):Bool
 	{
 		if (location != null && !(location is Int) && !(location is Bytes) && (location is String))
@@ -95,7 +95,7 @@ class FlxInternalVideo extends Video
 		return loadInternal(location, options);
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.addSlave)
+	@:inheritDoc(hxvlc.openfl.Video.addSlave)
 	public override function addSlave(type:Int, location:String, select:Bool):Bool
 	{
 		if (!Video.URL_VERIFICATION_REGEX.match(location))
@@ -123,7 +123,7 @@ class FlxInternalVideo extends Video
 		return super.addSlave(type, location, select);
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.dispose)
+	@:inheritDoc(hxvlc.openfl.Video.dispose)
 	public override function dispose():Void
 	{
 		if (FlxG.signals.focusGained.has(onFocusGained))

@@ -1,4 +1,4 @@
-package hxcodec.flixel;
+package hxvlc.flixel;
 
 #if flixel
 import flixel.FlxG;
@@ -26,7 +26,7 @@ class FlxVideo extends FlxInternalVideo
 	/** Determines the resizing behavior for the video. */
 	public var resizeMode(default, set):FlxAxes = FlxAxes.XY;
 
-	@:inheritDoc(hxcodec.openfl.Video.new)
+	@:inheritDoc(hxvlc.openfl.Video.new)
 	public function new(smoothing:Bool = true):Void
 	{
 		super(smoothing);
@@ -40,7 +40,7 @@ class FlxVideo extends FlxInternalVideo
 		});
 	}
 
-	@:inheritDoc(hxcodec.openfl.Video.dispose)
+	@:inheritDoc(hxvlc.openfl.Video.dispose)
 	public override function dispose():Void
 	{
 		if (FlxG.signals.gameResized.has(onGameResized))

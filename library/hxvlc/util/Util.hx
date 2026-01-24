@@ -1,4 +1,4 @@
-package hxcodec.util;
+package hxvlc.util;
 
 import cpp.CastCharStar;
 import cpp.ConstCharStar;
@@ -14,8 +14,8 @@ import haxe.PosInfos;
 import haxe.io.BytesInput;
 import haxe.io.Path;
 
-import hxcodec.externs.LibVLC;
-import hxcodec.externs.Types;
+import hxvlc.externs.LibVLC;
+import hxvlc.externs.Types;
 
 import sys.FileSystem;
 

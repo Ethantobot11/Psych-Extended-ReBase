@@ -1,4 +1,4 @@
-package hxcodec.util;
+package hxvlc.util;
 
 import cpp.ConstCharStar;
 import cpp.Pointer;
@@ -6,10 +6,10 @@ import cpp.StdVector;
 
 import haxe.io.Path;
 
-import hxcodec.externs.LibVLC;
-import hxcodec.externs.Types;
-import hxcodec.util.MainLoop;
-import hxcodec.util.macros.DefineMacro;
+import hxvlc.externs.LibVLC;
+import hxvlc.externs.Types;
+import hxvlc.util.MainLoop;
+import hxvlc.util.macros.DefineMacro;
 
 import sys.FileSystem;
 import sys.thread.Mutex;

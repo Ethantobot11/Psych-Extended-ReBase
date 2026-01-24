@@ -193,7 +193,7 @@
 
 	<haxelib name="tjson"/> <!-- Haxe's json brokes the mods, so use tjson for them -->
 
-	<haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
+	<haxelib name="hxvlc" if="VIDEOS_ALLOWED"/>
 
 	<haxelib name="faxe" if='switch'/>
 
@@ -244,7 +244,7 @@
 	<!--Allow working memory greater than 1 Gig-->
 	<!--haxedef name="HXCPP_GC_BIG_BLOCKS"-->
 	
-	<!-- Show debug traces for hxCodec -->
+	<!-- Show debug traces for hxvlc -->
 	<haxedef name="HXC_DEBUG_TRACE" if="debug" />
 	
 	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->

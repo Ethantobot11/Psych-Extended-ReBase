@@ -12,7 +12,7 @@ class Config {
 		"mobile", //You can extend and change things
 		"funkin",
 		"vlc", //Extending vlc can be fun
-		"hxcodec",
+		"hxvlc",
 	];
 
 	// Runs support for abstract support in these

@@ -21,7 +21,7 @@ Follow a Friday Night Funkin' Psych Engine source code compilation tutorial, aft
 
 If you get an error about StatePointer when using Lua, run `haxelib remove linc_luajit` into Command Prompt/PowerShell, then re-install linc_luajit.
 
-If you want video support on your mod, simply do `haxelib install hxCodec` on a Command prompt/PowerShell
+If you want video support on your mod, simply do `haxelib install hxvlc` on a Command prompt/PowerShell
 
 otherwise, you can delete the "VIDEOS_ALLOWED" Line on Project.xml
 
@@ -40,7 +40,7 @@ To install LuaJIT do this: `haxelib git linc_luajit https://github.com/nebulazor
 
 If you get an error about StatePointer when using Lua, run `haxelib remove linc_luajit` into Command Prompt/PowerShell, then re-install linc_luajit.
 
-If you want video support on your mod, simply do `haxelib install hxCodec` on a Command prompt/PowerShell
+If you want video support on your mod, simply do `haxelib install hxvlc` on a Command prompt/PowerShell
 
 otherwise, you can delete the "VIDEOS_ALLOWED" Line on Project.xml
 
@@ -55,7 +55,7 @@ otherwise, you can delete the "VIDEOS_ALLOWED" Line on Project.xml
 * SqirraRNG - Crash Handler and Base code for Chart Editor's Waveform
 * KadeDev - Fixed some cool stuff on Chart Editor and other PRs
 * iFlicky - Composer of Psync and Tea Time, also made the Dialogue Sounds
-* PolybiusProxy - .MP4 Video Loader Library (hxCodec)
+* PolybiusProxy - .MP4 Video Loader Library (hxvlc)
 * Keoiki - Note Splash Animations
 * Smokey - Sprite Atlas Support
 * Nebula the Zorua - LUA JIT Fork and some Lua reworks
