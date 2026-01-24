@@ -1,5 +1,5 @@
 package cs.ndll;
-
+#if android
 extern class NDLLFunction
 {
 	static var Initialized(get, never):Bool;
@@ -13,3 +13,4 @@ extern class NDLLFunction
 	function Call4(arg1:Dynamic, arg2:Dynamic, arg3:Dynamic, arg4:Dynamic):Dynamic;
 	function Call5(arg1:Dynamic, arg2:Dynamic, arg3:Dynamic, arg4:Dynamic, arg5:Dynamic):Dynamic;
 }
+#end

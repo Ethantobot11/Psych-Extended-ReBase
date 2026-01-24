@@ -21,7 +21,7 @@
  */
 
 package haxe.io;
-
+#if android
 #if (!hl && !js && !eval)
 #if cpp
 using cpp.NativeArray;
@@ -1190,4 +1190,5 @@ extern class Bytes
 		haxe.io.Error;
 	}
 }
+#end
 #end
