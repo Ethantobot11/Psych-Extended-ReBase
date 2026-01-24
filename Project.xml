@@ -265,6 +265,8 @@
 	<!--Disable deprecated warnings-->
 	<haxedef name='no-deprecation-warnings' />
 
+	<haxedef name="lime_use_old_deltatime" />
+
 	<!-- Haxe 4.3.0+: Enable pretty syntax errors and stuff. -->
 	<!-- pretty (haxeflixel default), indent, classic (haxe compiler default) -->
 	<haxedef name="message.reporting" value="pretty" />
