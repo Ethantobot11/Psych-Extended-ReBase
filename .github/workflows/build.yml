@@ -55,8 +55,8 @@ jobs:
 
       - name: clear openfl fork to 9.3.3
         run: |
+         haxelib set openfl 9.3.3
          haxelib remove openfl 9.5.0 --quiet
-         haxelib remove openfl 9.3.3 --quiet
          haxelib install openfl 9.3.3 --quiet
 
       - name: Configure Android
