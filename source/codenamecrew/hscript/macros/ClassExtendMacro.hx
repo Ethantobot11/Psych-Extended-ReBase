@@ -29,10 +29,10 @@ class ClassExtendMacro {
 	public static var __class__fields:Array<String>?;*/
 
 
-	public static var __cachedFieldSet:Array<String>?;
-    public static var __real_fields:Array<String>?;
-    public static var __interp:Dynamic?;
-    public static var __class__fields:Array<String>?;
+	public static var __cachedFieldSet:Array<String> = null;
+	public static var __real_fields:Array<String> = null;
+	public static var __interp:Dynamic = null;
+	public static var __class__fields:Array<String> = null;
 
     public static function initFields():Void {
         if (__cachedFieldSet == null) __cachedFieldSet = [];
