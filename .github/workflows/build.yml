@@ -53,6 +53,12 @@ jobs:
       - name: Install Libraries
         run: ${{ inputs.setupCommand }}
 
+      - name: clear openfl fork to 9.3.3
+        run: |
+         haxelib set openfl 9.3.3
+         haxelib remove openfl 9.5.0 --quiet
+         haxelib install openfl 9.3.3 --quiet
+
       - name: Configure Android
         if: inputs.system == 'Android'
         run: |
@@ -63,14 +69,6 @@ jobs:
 
       - name: Compile
         run: haxelib run lime build ${{ inputs.buildArgs }}
-
-      - name: Make IPA For iOS Simulator
-        if: inputs.system == 'iOS-Sim'
-        run: |
-          cd export/release/ios/build/Release-iphonesimulator
-          mkdir Payload
-          mv *.app Payload
-          zip -r ${{ env.PROJECT_NAME }}.ipa Payload
 
       - name: Make IPA For iOS
         if: inputs.system == 'iOS'
