@@ -42,6 +42,10 @@ jobs:
         with:
           haxe-version: ${{ env.HAXE_VERSION }}
 
+      - name: Install libVLC
+        if: inputs.name == 'Linux'
+        run: sudo apt install libvlc-dev libvlccore-dev
+
       - name: Setup Android NDK
         if: inputs.system == 'Android'
         id: setup-ndk
