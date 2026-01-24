@@ -23,11 +23,11 @@ class ClassExtendMacro {
 
 	public static var modifiedClasses:Array<String> = [];
 
-  public var __cachedFieldSet:Array<String> = [];
-  public var __real_fields:Array<String> = [];
-  public var __interp:Dynamic = {};
-  public var __class__fields:Array<String> = [];
-
+  	public var __cachedFieldSet:Array<String> = [];
+  	public var __real_fields:Array<String> = [];
+  	public var __interp:Dynamic = {};
+  	public var __class__fields:Array<String> = [];
+	
 	public static function init() {
 		#if !display
 		#if CUSTOM_CLASSES
@@ -678,7 +678,7 @@ class ClassExtendMacro {
 							Reflect.setProperty(this, k, v);
 						}
 						__cachedFieldSet.clear();
-						__cachedFieldSet = null;
+						__cachedFieldSet = [];
 					}
 				}
 			}),
