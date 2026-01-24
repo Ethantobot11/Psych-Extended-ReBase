@@ -209,7 +209,6 @@
 	<haxelib name="flxanimate" />
 	<haxelib name="funkin.vis"/>
 	<haxelib name="grig.audio" />
-	<haxelib name="extension-androidtools" if="android" />
 
 	<!-- <haxelib name="markdown" /> -->
 	<!-- <haxelib name="HtmlParser" /> -->
