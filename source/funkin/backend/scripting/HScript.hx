@@ -1,3 +1,4 @@
+@:nullSafety(Off)
 package funkin.backend.scripting;
 
 #if (SCRIPTING_ALLOWED || HSC_ALLOWED)
