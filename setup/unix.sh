@@ -18,7 +18,7 @@ haxelib install hscript 2.4.0 --quiet
 haxelib install tjson 1.4.0 --quiet #for fucking mods system (haxe.Json brokes the modlist)
 haxelib install hxvlc 2.1.0 --quiet #That clearly my repo
 haxelib git hxcpp https://github.com/AlafandyPorting/hxcpp --quiet #Just a normal hxcpp
-haxelib git https://github.com/ArkoseLabsOfficial/lime-termux --quiet #repo owner helped to fix termux problem
+haxelib git lime https://github.com/ArkoseLabsOfficial/lime-termux --quiet #repo owner helped to fix termux problem
 haxelib install openfl 9.3.3 --quiet #Most stable version of openfl
 haxelib git flxanimate https://github.com/PsychExtendedThings/flxanimate-ex --quiet
 haxelib git funkin.vis https://github.com/beihu235/funkVis-FrequencyFixed main --quiet
