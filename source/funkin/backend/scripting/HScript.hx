@@ -1,4 +1,3 @@
-@:nullSafety(Off)
 package funkin.backend.scripting;
 
 #if (SCRIPTING_ALLOWED || HSC_ALLOWED)
@@ -27,6 +26,7 @@ import flixel.util.FlxSave;
 /**
 	Handles Codename Engine's HScript Improved for you.
 **/
+@:nullSafety(Off)
 class HScript extends Script {
 	public var interp:Interp;
 	public var parser:Parser;
