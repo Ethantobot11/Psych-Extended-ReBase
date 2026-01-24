@@ -845,7 +845,7 @@ class ModsMenuState extends MusicBeatState
 			fileStr += '$mod|$on|$value';
 		}
 
-		var path:String = #if mobile StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'modsList.txt';
+		var path:String = #if android StorageUtil.getExternalStorageDirectory() + #else Sys.getCwd() + #end 'modsList.txt';
 		#if MODPACK_ALLOWED
 		if (ClientPrefs.data.currentModPack != null) path = Paths.modpack(ClientPrefs.data.currentModPack + '/modsList.txt');
 		#end
