@@ -19,8 +19,8 @@ using StringTools;
 // BIG TODO: make typed classes scriptable
 @:nullSafety(Off)
 class ClassExtendMacro {
-	public static inline final FUNC_PREFIX = "_HX_SUPER__";
-	public static inline final CLASS_SUFFIX = "_HSX";
+	public static inline final FUNC_PREFIX:String = "_HX_SUPER__";
+	public static inline final CLASS_SUFFIX:String = "_HSX";
 
 	public static var unallowedMetas:Array<String> = [":bitmap", ":noCustomClass", ":generic"];
 
