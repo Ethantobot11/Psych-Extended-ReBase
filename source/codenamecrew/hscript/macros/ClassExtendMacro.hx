@@ -11,6 +11,8 @@ import haxe.macro.Type.FieldKind;
 import haxe.macro.Type.ClassField;
 import haxe.macro.Type.VarAccess;
 import haxe.macro.*;
+import haxe.macro.Context;
+import haxe.macro.Compiler;
 
 using StringTools;
 
@@ -23,11 +25,6 @@ class ClassExtendMacro {
 	public static var unallowedMetas:Array<String> = [":bitmap", ":noCustomClass", ":generic"];
 
 	public static var modifiedClasses:Array<String> = [];
-
-  	/*public static var __cachedFieldSet:Array<String>?;
-	public static var __real_fields:Array<String>?;
-	public static var __interp:Dynamic?;
-	public static var __class__fields:Array<String>?;*/
 	public static function init() {
 		#if !display
 		#if CUSTOM_CLASSES
