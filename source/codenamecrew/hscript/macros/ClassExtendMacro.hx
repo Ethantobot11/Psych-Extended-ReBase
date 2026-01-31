@@ -38,6 +38,7 @@ class ClassExtendMacro {
 	}
 
 	public static function build():Array<Field> {
+		var classFields = __class__fields;
 		var fields = Context.getBuildFields();
 		var clRef = Context.getLocalClass();
 		if (clRef == null) return fields;
@@ -260,7 +261,7 @@ class ClassExtendMacro {
 							overrideExpr = macro {
 								var name:String = $v{name};
 
-								if (__interp != null && __class__fields.contains(name)) {
+								if (__interp != null && __class__fields != null && __class__fields.contains(name)) {
 									var v:Dynamic = null;
 									if (Reflect.isFunction(v = __interp.variables.get(name))) {
 										return v($a{arguments});
@@ -273,7 +274,7 @@ class ClassExtendMacro {
 							overrideExpr = macro {
 								var name:String = $v{name};
 
-								if (__interp != null && __class__fields.contains(name)) {
+								if (__interp != null && __class__fields != null && __class__fields.contains(name)) {
 									var v:Dynamic = null;
 									if (Reflect.isFunction(v = __interp.variables.get(name))) {
 										v($a{arguments});
@@ -509,7 +510,7 @@ class ClassExtendMacro {
 			} else {
 				macro {
 					if (__interp != null) {
-						if(__class__fields.contains(name)) {
+						if(__class__fields != null && __class__fields.contains(name)) {
 							var v:Dynamic = __interp.variables.get(name);
 							if(v != null && v is codenamecrew.hscript.Property) 
 								return cast(v, codenamecrew.hscript.Property).callGetter(name);
@@ -557,7 +558,7 @@ class ClassExtendMacro {
 						}
 					}
 					
-					if(__real_fields.contains(name)) {
+					if(__class__fields != null && __class__fields.contains(name)) {
 						UnsafeReflect.setProperty(this, name, val);
 						return UnsafeReflect.field(this, name);
 					}
@@ -587,7 +588,7 @@ class ClassExtendMacro {
 						}
 					}
 
-					if(__real_fields.contains(name)) {
+					if (__real_fields != null && __real_fields.contains(name)) {
 						UnsafeReflect.setProperty(this, name, val);
 						return UnsafeReflect.field(this, name);
 					}
