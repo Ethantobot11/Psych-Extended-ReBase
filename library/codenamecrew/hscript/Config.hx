@@ -1,17 +1,20 @@
 package codenamecrew.hscript;
 
 class Config {
+	public static final ALLOWED_CUSTOM_CLASSES:Array<String> = [ ... ];
+	public static final ALLOWED_ABSTRACT_AND_ENUM:Array<String> = [ ... ];
+	public static final DISALLOW_CUSTOM_CLASSES:Array<String> = [ ... ];
+	public static final DISALLOW_ABSTRACT_AND_ENUM:Array<String> = [ ... ];
 	// Runs support for custom classes in these
-	public static final ALLOWED_CUSTOM_CLASSES = [
-		"flixel",
-		//Psych Extended Source Code
-		"shaders",
-		"cutscenes",
-		"scripting",
-		"mobile", //You can extend and change things
-		"funkin",
-		"hxvlc",
-	];
+	public static final ALLOWED_CUSTOM_CLASSES:Array<String> = [
+	"flixel.*",
+	"shaders.*",
+	"cutscenes.*",
+	"scripting.*",
+	"mobile.*",
+	"funkin.*",
+	"hxvlc.*",
+];
 
 	// Runs support for abstract support in these
 	public static final ALLOWED_ABSTRACT_AND_ENUM = [
