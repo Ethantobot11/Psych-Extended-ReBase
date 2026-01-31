@@ -67,17 +67,8 @@ class ClassExtendMacro {
 			if(fkey == "codenamecrew.hscript.CustomClassHandler.CustomTemplateClass") return fields; // Error: Redefined
 			if(fkey == "codenamecrew.hscript.CustomClass") return fields; // Error: Redefined
 			if(key == "sys.thread.EventLoop") return fields; // Error: cant override force inlined
-			function matches(list:Array<String>, value:String):Bool {
-			for (e in list) {
-				if (e.endsWith(".*") && value.startsWith(e.substr(0, e.length - 2)))
-					return true;
-				if (e == value)
-					return true;
-				}
-				return false;
-			}
-
-			if(cl.module.matches("_")) return fields; // Weird issue, sorry
+			if(Config.DISALLOW_CUSTOM_CLASSES.contains(cl.module) || Config.DISALLOW_CUSTOM_CLASSES.contains(fkey)) return fields;
+			if(cl.module.contains("_")) return fields; // Weird issue, sorry
 
 			var superFields = [];
 			if(false && cl.superClass != null) {
@@ -238,14 +229,14 @@ class ClassExtendMacro {
 				}
 				if (f.name.startsWith(FUNC_PREFIX))
 					continue;
-				if (f.access.matches(ADynamic) || f.access.matches(AStatic) || f.access.matches(AExtern) || f.access.matches(AInline) || f.access.matches(AFinal))
+				if (f.access.contains(ADynamic) || f.access.contains(AStatic) || f.access.contains(AExtern) || f.access.contains(AInline) || f.access.contains(AFinal))
 					continue;
 
 				if(f.name == "hget" || f.name == "hset") continue; // sorry, no overwriting the hget and hset in custom classes, yet
-				if(definedFields.matches(f.name)) continue; // no duplicate fields
+				if(definedFields.contains(f.name)) continue; // no duplicate fields
 
 				for(m in f.meta)
-					if (unallowedMetas.matches(m.name))
+					if (unallowedMetas.contains(m.name))
 						continue;
 
 				switch(f.kind) {
@@ -269,7 +260,7 @@ class ClassExtendMacro {
 							overrideExpr = macro {
 								var name:String = $v{name};
 
-								if (__interp != null && __class__fields.matches(name)) {
+								if (__interp != null && __class__fields.contains(name)) {
 									var v:Dynamic = null;
 									if (Reflect.isFunction(v = __interp.variables.get(name))) {
 										return v($a{arguments});
@@ -282,7 +273,7 @@ class ClassExtendMacro {
 							overrideExpr = macro {
 								var name:String = $v{name};
 
-								if (__interp != null && __class__fields.matches(name)) {
+								if (__interp != null && __class__fields.contains(name)) {
 									var v:Dynamic = null;
 									if (Reflect.isFunction(v = __interp.variables.get(name))) {
 										v($a{arguments});
@@ -470,7 +461,7 @@ class ClassExtendMacro {
 					continue;
 				if (f.name.startsWith(FUNC_PREFIX))
 					continue;
-				if (f.access.matches(ADynamic) || f.access.matches(AStatic) || f.access.matches(AExtern))
+				if (f.access.contains(ADynamic) || f.access.contains(AStatic) || f.access.contains(AExtern))
 					continue;
 
 				switch(f.kind) {
@@ -493,7 +484,7 @@ class ClassExtendMacro {
 			var hgetField = if(hasHgetInSuper) {
 				macro {
 					if (__interp != null) {
-						if(__class__fields.matches(name)) {
+						if(__class__fields.contains(name)) {
 							var v:Dynamic = __interp.variables.get(name);
 							if(v != null && v is codenamecrew.hscript.Property) 
 								return cast(v, codenamecrew.hscript.Property).callGetter(name);
@@ -518,7 +509,7 @@ class ClassExtendMacro {
 			} else {
 				macro {
 					if (__interp != null) {
-						if(__class__fields.matches(name)) {
+						if(__class__fields.contains(name)) {
 							var v:Dynamic = __interp.variables.get(name);
 							if(v != null && v is codenamecrew.hscript.Property) 
 								return cast(v, codenamecrew.hscript.Property).callGetter(name);
@@ -545,7 +536,7 @@ class ClassExtendMacro {
 			var hsetField = if(hasHsetInSuper) {
 				macro {
 					if (__interp != null) {
-						if(__class__fields.matches(name)) {
+						if(__class__fields.contains(name)) {
 							var v:Dynamic = __interp.variables.get(name);
 							if(v != null && v is codenamecrew.hscript.Property) 
 								return cast(v, codenamecrew.hscript.Property).callSetter(name, val);
@@ -566,7 +557,7 @@ class ClassExtendMacro {
 						}
 					}
 					
-					if(__real_fields.matches(name)) {
+					if(__real_fields.contains(name)) {
 						UnsafeReflect.setProperty(this, name, val);
 						return UnsafeReflect.field(this, name);
 					}
@@ -596,7 +587,7 @@ class ClassExtendMacro {
 						}
 					}
 
-					if(__real_fields.matches(name)) {
+					if(__real_fields.contains(name)) {
 						UnsafeReflect.setProperty(this, name, val);
 						return UnsafeReflect.field(this, name);
 					}
