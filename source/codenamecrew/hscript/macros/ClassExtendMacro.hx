@@ -354,14 +354,14 @@ class ClassExtendMacro {
 			shadowClass.fields.push({
 				name: "__cachedFieldSet",
 				pos: Context.currentPos(),
-				kind: FVar(macro: Map<String, Dynamic>),
+				kind: FVar(macro: Null<Map<String, Dynamic>>, macro null),
 				access: [APublic, AStatic]
 			});
 
 			shadowClass.fields.push({
 				name: "__interp",
 				pos: Context.currentPos(),
-				kind: FVar(macro: codenamecrew.hscript.Interp),
+				kind: FVar(macro: Null<codenamecrew.hscript.Interp>, macro null),
 				access: [APublic]
 			});
 			/*
@@ -382,14 +382,14 @@ class ClassExtendMacro {
 			shadowClass.fields.push({
 				name: "__real_fields",
 				pos: Context.currentPos(),
-				kind: FVar(macro: Array<String>),
+				kind: FVar(macro: Null<Array<String>>, macro null),
 				access: [APublic]
 			});
 
 			shadowClass.fields.push({
 				name: "__class__fields",
 				pos: Context.currentPos(),
-				kind: FVar(macro: Array<String>),
+				kind: FVar(macro: Null<Array<String>>, macro null),
 				access: [APublic]
 			});
 
