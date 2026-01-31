@@ -328,17 +328,7 @@ class ChartingState extends MusicBeatState
 
 		if (usingMobile)
 		{
-			text = "Up/Down - Change Conductor's strum time
-			\nLeft/Right - Go to the previous/next section"
-			#if FLX_PITCH + "\nG - Reset Song Playback Rate" + #end
-			"\nHold Y to move 4x faster
-			\nHold H and touch on an arrow to select it
-			\nV/D - Zoom in/out
-			\n
-			\nC - Test your chart inside Chart Editor
-			\nA - Play your chart
-			\nUp/Down (On The Right) - Decrease/Increase Note Sustain Length
-			\nX - Stop/Resume Song";
+			text = "Up/Down - Change Conductor's strum time \nLeft/Right - Go to the previous/next section"#if FLX_PITCH + "\nG - Reset Song Playback Rate" + #end"\nHold Y to move 4x faster\nHold H and touch on an arrow to select it\nV/D - Zoom in/out\n\nC - Test your chart inside Chart Editor\nA - Play your chart\nUp/Down (On The Right) - Decrease/Increase Note Sustain Length\nX - Stop/Resume Song";
 		}
 		else
 		{
