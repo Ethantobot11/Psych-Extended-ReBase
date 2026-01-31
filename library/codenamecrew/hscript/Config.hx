@@ -1,6 +1,10 @@
 package codenamecrew.hscript;
 
 class Config {
+	public static final ALLOWED_CUSTOM_CLASSES:Array<String> = [ ... ];
+	public static final ALLOWED_ABSTRACT_AND_ENUM:Array<String> = [ ... ];
+	public static final DISALLOW_CUSTOM_CLASSES:Array<String> = [ ... ];
+	public static final DISALLOW_ABSTRACT_AND_ENUM:Array<String> = [ ... ];
 	// Runs support for custom classes in these
 	public static final ALLOWED_CUSTOM_CLASSES = [
 		"flixel",
@@ -14,11 +18,11 @@ class Config {
 	];
 
 	// Runs support for abstract support in these
-	public static final ALLOWED_ABSTRACT_AND_ENUM:Array<String> = [
-		"sys.thread.*",
-		"flixel.text.*",
-		"flixel.math.*",
-		"flixel.util.*",
+	public static final ALLOWED_ABSTRACT_AND_ENUM = [
+		"sys.thread",
+		"flixel.text",
+		"flixel.math",
+		"flixel.util",
 		"openfl.display.BlendMode",
 	];
 
