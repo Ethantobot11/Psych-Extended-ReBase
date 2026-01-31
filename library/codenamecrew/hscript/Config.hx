@@ -4,14 +4,12 @@ class Config {
 	// Runs support for custom classes in these
 	public static final ALLOWED_CUSTOM_CLASSES = [
 		"flixel",
-
 		//Psych Extended Source Code
 		"shaders",
 		"cutscenes",
 		"scripting",
 		"mobile", //You can extend and change things
 		"funkin",
-		"vlc", //Extending vlc can be fun
 		"hxvlc",
 	];
 
